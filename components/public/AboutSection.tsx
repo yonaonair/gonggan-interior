@@ -20,7 +20,7 @@ export default function AboutSection() {
         {/* 경력 배지 */}
         <div className="absolute bottom-[-20px] right-[-20px] w-[120px] h-[120px] bg-brown-900 flex flex-col items-center justify-center gap-1 md:right-[-20px]">
           <div className="font-display text-[2.4rem] font-light text-cream-200 leading-none">15+</div>
-          <div className="text-[0.68rem] text-cream-200/50 tracking-widest text-center">Years<br />Experience</div>
+          <div className="text-[0.78rem] text-cream-200/50 tracking-widest text-center leading-tight">Years<br />Experience</div>
         </div>
       </div>
 
@@ -36,7 +36,7 @@ export default function AboutSection() {
           &ldquo;좋은 공간은 단순히 아름다운 것이 아니라,<br />
           그 안에서 살아가는 사람을 편안하게 합니다.&rdquo;
         </blockquote>
-        <p className="reveal text-[0.88rem] text-[var(--text-mid)] leading-[2] mb-10 break-keep">
+        <p className="reveal text-[0.88rem] text-(--text-mid) leading-loose mb-10 break-keep">
           공간인테리어는 전라남도를 중심으로 실내인테리어, 주거공간, 상업공간, 신축증축 전반을 다루어 왔습니다.
           개인 주택 리모델링에서 대학교 강의동, 교회 리모델링에 이르기까지 다양한 현장 경험을 바탕으로
           고객 한 분 한 분의 공간에 진심을 담아 시공합니다.
@@ -47,7 +47,7 @@ export default function AboutSection() {
           <div className="font-serif-kr text-[1.15rem] font-semibold text-brown-900 tracking-[0.1em]">
             안 &nbsp; 종 &nbsp; 선
           </div>
-          <div className="text-[0.78rem] text-[var(--text-light)] tracking-widest">대표 · 공간인테리어</div>
+          <div className="text-[0.80rem] text-(--text-light) tracking-widest">대표 · 공간인테리어</div>
         </div>
       </div>
     </section>

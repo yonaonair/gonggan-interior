@@ -39,7 +39,7 @@ export default function Navbar() {
     <>
       <nav
         style={{ height: 'var(--nav-h)' }}
-        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[5vw] border-b transition-all duration-[400ms] ${
+        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[5vw] border-b transition-all duration-400 ${
           scrolled
             ? 'bg-brown-900/97 border-transparent'
             : 'bg-cream-100/92 backdrop-blur-[12px] border-brown-800/8'
@@ -67,8 +67,8 @@ export default function Navbar() {
                 className={`text-[0.88rem] tracking-[0.08em] font-normal relative
                   after:content-[''] after:absolute after:bottom-[-3px] after:left-0
                   after:w-0 after:h-px after:bg-brown-500
-                  hover:after:w-full after:transition-all after:duration-[400ms]
-                  transition-colors ${scrolled ? 'text-cream-200' : 'text-[var(--text-mid)]'}`}
+                  hover:after:w-full after:transition-all after:duration-400
+                  transition-colors ${scrolled ? 'text-cream-200' : 'text-(--text-mid)'}`}
               >
                 {l.label}
               </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className={`px-[22px] py-[9px] rounded-sm text-[0.80rem] tracking-[0.1em] font-normal transition-all duration-[400ms] ${
+              className={`px-[22px] py-[9px] rounded-sm text-[0.80rem] tracking-[0.1em] font-normal transition-all duration-400 ${
                 scrolled
                   ? 'bg-cream-200 text-brown-800 hover:bg-cream-100'
                   : 'bg-brown-800 text-cream-100 hover:bg-brown-700'

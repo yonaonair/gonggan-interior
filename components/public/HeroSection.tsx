@@ -1,12 +1,14 @@
 export default function HeroSection() {
   return (
     <section
+      suppressHydrationWarning
       id="hero"
       className="min-h-screen bg-brown-900 grid grid-cols-1 md:grid-cols-2 items-center relative overflow-hidden"
       style={{ paddingTop: 'var(--nav-h)' }}
     >
       {/* 배경 그리드 텍스처 */}
       <div
+        suppressHydrationWarning
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
@@ -38,13 +40,13 @@ export default function HeroSection() {
         <div className="flex gap-4 flex-wrap">
           <a
             href="#projects"
-            className="px-8 py-[14px] bg-cream-200 text-brown-900 text-[0.85rem] font-medium tracking-[0.08em] rounded-sm hover:bg-white hover:-translate-y-0.5 transition-all duration-[400ms]"
+            className="px-8 py-[14px] bg-cream-200 text-brown-900 text-[0.85rem] font-medium tracking-[0.08em] rounded-sm hover:bg-white hover:-translate-y-0.5 transition-all duration-400"
           >
             시공 사례 보기
           </a>
           <a
             href="#contact"
-            className="px-8 py-[14px] bg-transparent text-cream-300 text-[0.85rem] tracking-[0.08em] border border-cream-200/30 rounded-sm hover:border-cream-300 hover:text-cream-100 transition-all duration-[400ms]"
+            className="px-8 py-[14px] bg-transparent text-cream-300 text-[0.85rem] tracking-[0.08em] border border-cream-200/30 rounded-sm hover:border-cream-300 hover:text-cream-100 transition-all duration-400"
           >
             무료 상담 신청
           </a>
@@ -57,7 +59,7 @@ export default function HeroSection() {
         style={{ animation: 'fadeIn 1.2s ease 0.3s both' }}
       >
         <div className="absolute inset-0 flex items-center justify-center bg-brown-800">
-          <div className="absolute inset-0 bg-gradient-to-br from-brown-900/60 to-transparent" />
+          <div suppressHydrationWarning className="absolute inset-0 bg-linear-to-br from-brown-900/60 to-transparent" />
           <div className="relative z-10">
             <svg
               viewBox="0 0 380 320"

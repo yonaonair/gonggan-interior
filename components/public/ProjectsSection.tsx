@@ -53,7 +53,7 @@ export default function ProjectsSection({ projects }: Props) {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`px-4.5 py-2 text-[0.80rem] tracking-[0.08em] rounded-sm border transition-all duration-400 ${
+              className={`px-4.5 py-2 text-[0.80rem] tracking-[0.08em] rounded-sm border transition-all duration-400 cursor-pointer ${
                 active === f
                   ? 'bg-cream-200 text-brown-900 border-cream-200'
                   : 'bg-transparent text-cream-200/50 border-cream-200/20 hover:bg-cream-200 hover:text-brown-900 hover:border-cream-200'

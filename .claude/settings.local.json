@@ -5,7 +5,10 @@
       "Bash(do echo:*)",
       "Read(//g/workspace/gonggan-interior/**)",
       "Bash(done)",
-      "Bash(do sed:*)"
+      "Bash(do sed:*)",
+      "Bash(npm run:*)",
+      "Bash(grep -n \"duration-400\\\\|duration-600\\\\|bg-gradient\\\\|cursor-pointer\\\\|cursor-default\\\\|0\\\\.68rem\\\\|0\\\\.72rem\\\\|0\\\\.75rem\\\\|0\\\\.78rem\\\\|0\\\\.80rem\" /c/Users/user/Desktop/workspace/gonggan-interior/components/public/*.tsx /c/Users/user/Desktop/workspace/gonggan-interior/components/ui/*.tsx)",
+      "Bash(grep -n \"text-\\\\[var\\(--\\\\|duration-\\\\[400ms\\\\]\\\\|bg-gradient-to\" /c/Users/user/Desktop/workspace/gonggan-interior/components/**/*.tsx /c/Users/user/Desktop/workspace/gonggan-interior/components/*.tsx)"
     ]
   }
 }

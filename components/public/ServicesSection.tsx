@@ -59,7 +59,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="bg-cream-100 py-[7rem] px-[8vw]">
+    <section id="services" className="bg-cream-100 py-28 px-[8vw]">
       {/* 헤더 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-end mb-16">
         <div>
@@ -70,7 +70,7 @@ export default function ServicesSection() {
             무엇이든<br />공간이 됩니다
           </h2>
         </div>
-        <p className="reveal text-[0.95rem] text-[var(--text-light)] leading-[1.9] break-keep">
+        <p className="reveal text-[0.95rem] text-(--text-light) leading-[1.9] break-keep">
           주거공간의 아늑함부터 상업공간의 기능성까지,<br />
           신축과 증축에 이르는 전 과정을<br />
           공간인테리어가 함께합니다.
@@ -82,30 +82,30 @@ export default function ServicesSection() {
         {services.map((s, i) => (
           <div
             key={s.num}
-            className={`reveal group bg-cream-100 px-8 py-11 cursor-default relative overflow-hidden transition-colors duration-[400ms] hover:bg-brown-900 ${
+            className={`reveal group bg-cream-100 px-8 py-11 cursor-default relative overflow-hidden transition-colors duration-400 hover:bg-brown-900 ${
               i > 0 ? `reveal-delay-${i}` : ''
             }`}
           >
             {/* 하단 슬라이드 보더 */}
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-cream-300 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-[400ms]" />
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cream-300 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-400" />
 
-            <div className="font-display text-[0.80rem] tracking-[0.15em] text-[var(--text-light)] group-hover:text-cream-200/20 transition-colors duration-[400ms] mb-6">
+            <div className="font-display text-[0.80rem] tracking-[0.15em] text-(--text-light) group-hover:text-cream-200/20 transition-colors duration-400 mb-6">
               {s.num}
             </div>
-            <div className="text-brown-700 group-hover:text-cream-300 transition-colors duration-[400ms] mb-6">
+            <div className="text-brown-700 group-hover:text-cream-300 transition-colors duration-400 mb-6">
               {s.icon}
             </div>
-            <h3 className="font-serif-kr text-[1.1rem] font-semibold text-brown-900 group-hover:text-cream-100 transition-colors duration-[400ms] mb-3">
+            <h3 className="font-serif-kr text-[1.1rem] font-semibold text-brown-900 group-hover:text-cream-100 transition-colors duration-400 mb-3">
               {s.name}
             </h3>
-            <p className="text-[0.92rem] text-[var(--text-light)] group-hover:text-cream-200/50 transition-colors duration-[400ms] leading-[1.8] mb-5 break-keep">
+            <p className="text-[0.92rem] text-(--text-light) group-hover:text-cream-200/50 transition-colors duration-400 leading-[1.8] mb-5 break-keep">
               {s.desc}
             </p>
             <ul className="flex flex-col gap-1">
               {s.items.map((item) => (
                 <li
                   key={item}
-                  className="text-[0.85rem] text-[var(--text-light)] group-hover:text-cream-200/60 transition-colors duration-[400ms] pl-4 relative before:content-['·'] before:absolute before:left-0"
+                  className="text-[0.85rem] text-(--text-light) group-hover:text-cream-200/60 transition-colors duration-400 pl-4 relative before:content-['·'] before:absolute before:left-0"
                 >
                   {item}
                 </li>

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//g/workspace/gonggan-interior/**)",
+      "Bash(done)",
+      "Bash(do sed:*)"
+    ]
+  }
+}

@@ -15,7 +15,7 @@ export default async function AdminProjectsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="font-serif-kr text-[1.5rem] font-semibold text-brown-900">시공 사례</h1>
+        <h1 className="text-[1.5rem] font-semibold text-brown-900">시공 사례</h1>
         <Link
           href="/admin/projects/new"
           className="min-h-11 px-6 py-2.5 bg-brown-900 text-cream-100 text-[0.82rem] tracking-widest hover:bg-brown-700 transition-colors"

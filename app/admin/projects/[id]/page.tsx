@@ -31,20 +31,39 @@ export default async function AdminEditProjectPage({
     }))
 
   return (
-    <div>
-      <h1 className="font-serif-kr text-[1.5rem] font-semibold text-brown-900 mb-8">
-        시공 사례 수정
-      </h1>
+    <div className="flex flex-col gap-10">
+      <div>
+        <h1 className="text-[1.5rem] font-semibold text-brown-900 mb-1">
+          시공 사례 수정
+        </h1>
+        <p className="text-[0.82rem] text-(--text-light)">{project.title}</p>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div>
-          <h2 className="text-[0.82rem] tracking-widest text-(--text-light) mb-4">기본 정보</h2>
+      {/* 기본 정보 */}
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-6 h-6 rounded-full bg-brown-900 text-cream-100 text-[0.72rem] font-semibold flex items-center justify-center shrink-0">
+            1
+          </span>
+          <h2 className="text-[0.82rem] tracking-widest text-(--text-light)">기본 정보</h2>
+        </div>
+        <div className="max-w-xl">
           <ProjectForm project={project} />
         </div>
-        <div>
-          <h2 className="text-[0.82rem] tracking-widest text-(--text-light) mb-4">시공 사진</h2>
-          <ImageUploader projectId={id} initialImages={images} />
+      </div>
+
+      {/* 시공 사진 */}
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-6 h-6 rounded-full bg-brown-900 text-cream-100 text-[0.72rem] font-semibold flex items-center justify-center shrink-0">
+            2
+          </span>
+          <h2 className="text-[0.82rem] tracking-widest text-(--text-light)">
+            시공 사진
+            <span className="ml-2 text-brown-800/30">({images.length}장)</span>
+          </h2>
         </div>
+        <ImageUploader projectId={id} initialImages={images} />
       </div>
     </div>
   )

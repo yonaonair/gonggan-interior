@@ -31,18 +31,26 @@ export default async function ProjectDetailPage({
     .from('projects')
     .select('*, project_images(*)')
     .eq('slug', slug)
-    .eq('is_published', true)
     .single()
 
   if (!project) notFound()
 
-  const p = project as Project
+  const p = project as Project & { is_published: boolean }
   const sorted = [...(p.project_images ?? [])].sort((a, b) => a.sort_order - b.sort_order)
   const beforeImages = sorted.filter((img) => img.is_before)
   const afterImages = sorted.filter((img) => !img.is_before)
 
   return (
     <main className="min-h-screen bg-cream-100" style={{ paddingTop: 'var(--nav-h)' }}>
+      {/* 미발행 안내 (관리자 미리보기용) */}
+      {!p.is_published && (
+        <div className="bg-amber-50 border-b border-amber-200 px-[8vw] py-3 text-[0.80rem] text-amber-700 tracking-wide">
+          ⚠ 미발행 상태입니다 — 관리자만 볼 수 있습니다.{' '}
+          <Link href="/admin/projects" className="underline underline-offset-2 hover:text-amber-900">
+            관리자 페이지로
+          </Link>
+        </div>
+      )}
       {/* 헤더 */}
       <div className="bg-brown-900 px-[8vw] py-16">
         <Link

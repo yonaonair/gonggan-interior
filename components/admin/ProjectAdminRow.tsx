@@ -36,7 +36,7 @@ export default function ProjectAdminRow({ project }: Props) {
     <div className="flex items-center gap-4 p-4 bg-white border border-brown-800/8 hover:border-brown-800/15 transition-colors">
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="font-serif-kr text-[0.92rem] font-semibold text-brown-900 truncate">
+          <span className="text-[0.92rem] font-semibold text-brown-900 truncate">
             {project.title}
           </span>
           <span className="text-[0.72rem] text-(--text-light) tracking-widest">{project.category}</span>
@@ -60,6 +60,13 @@ export default function ProjectAdminRow({ project }: Props) {
           {published ? '발행됨' : '미발행'}
         </button>
 
+        <Link
+          href={`/projects/${project.slug}`}
+          target="_blank"
+          className="min-h-9 px-3 text-[0.72rem] tracking-widest text-(--text-light) border border-brown-800/15 hover:border-brown-500 hover:text-brown-500 transition-colors flex items-center"
+        >
+          보기
+        </Link>
         <Link
           href={`/admin/projects/${project.id}`}
           className="min-h-9 px-3 text-[0.72rem] tracking-widest text-(--text-light) border border-brown-800/15 hover:border-brown-500 hover:text-brown-500 transition-colors flex items-center"

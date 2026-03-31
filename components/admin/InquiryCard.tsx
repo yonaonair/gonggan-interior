@@ -38,7 +38,7 @@ export default function InquiryCard({ inquiry }: Props) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-serif-kr text-[0.95rem] font-semibold text-brown-900">
+            <span className="text-[0.95rem] font-semibold text-brown-900">
               {inquiry.name}
             </span>
             {!isRead && (

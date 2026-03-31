@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { Project } from '@/types'
 import { getPublicUrl } from '@/lib/r2'
 
@@ -77,9 +78,10 @@ export default function ProjectsSection({ projects }: Props) {
             const isFeatured = p.is_featured && i === 0
 
             return (
-              <div
+              <Link
                 key={p.id}
-                className={`group relative overflow-hidden cursor-pointer bg-brown-800 ${
+                href={`/projects/${p.slug}`}
+                className={`group relative overflow-hidden block bg-brown-800 ${
                   isFeatured ? 'lg:col-span-2' : ''
                 }`}
                 style={{ aspectRatio: isFeatured ? 'auto' : '4/3' }}
@@ -116,7 +118,7 @@ export default function ProjectsSection({ projects }: Props) {
                     </div>
                   )}
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
@@ -124,13 +126,13 @@ export default function ProjectsSection({ projects }: Props) {
 
       {/* 더보기 링크 */}
       <div className="text-center mt-12">
-        <a
+        <Link
           href="/projects"
           className="inline-flex items-center gap-3 text-[0.88rem] text-cream-200/50 tracking-widest hover:text-cream-200 transition-colors duration-400"
         >
           전체 시공 사례 보기
           <span className="text-lg">→</span>
-        </a>
+        </Link>
       </div>
     </section>
   )

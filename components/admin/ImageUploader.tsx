@@ -33,22 +33,12 @@ export default function ImageUploader({ projectId, initialImages = [] }: Props) 
       const key = `projects/${projectId}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`
 
       try {
-        // presigned URL 발급
-        const res = await fetch('/api/upload', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ key, contentType: file.type }),
-        })
-        if (!res.ok) throw new Error('presigned URL 발급 실패')
-        const { url } = await res.json()
-
-        // R2에 직접 업로드
-        const uploadRes = await fetch(url, {
-          method: 'PUT',
-          headers: { 'Content-Type': file.type },
-          body: file,
-        })
-        if (!uploadRes.ok) throw new Error('R2 업로드 실패')
+        // 서버 API를 통해 R2에 직접 업로드 (CORS 우회)
+        const form = new FormData()
+        form.append('file', file)
+        form.append('key', key)
+        const res = await fetch('/api/upload', { method: 'POST', body: form })
+        if (!res.ok) throw new Error('업로드 실패')
 
         // DB 저장
         const result = await addProjectImage(projectId, key, {
@@ -116,7 +106,6 @@ export default function ImageUploader({ projectId, initialImages = [] }: Props) 
           ref={fileRef}
           type="file"
           accept="image/*"
-          capture="environment"
           multiple
           className="hidden"
           onChange={(e) => handleFiles(e.target.files)}

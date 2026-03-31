@@ -27,6 +27,22 @@ create table project_images (
   created_at  timestamptz default now()
 );
 
+-- 사이트 이미지 (히어로 슬라이드쇼, 소개 대표 사진 등)
+create table site_images (
+  id          uuid primary key default gen_random_uuid(),
+  slot        text not null               -- 'hero' | 'about'
+    check (slot in ('hero', 'about')),
+  r2_key      text not null,
+  sort_order  int default 0,
+  created_at  timestamptz default now()
+);
+
+alter table site_images enable row level security;
+
+create policy "public read site_images"
+  on site_images for select
+  using (true);
+
 -- 문의
 create table inquiries (
   id          uuid primary key default gen_random_uuid(),
@@ -53,11 +69,57 @@ create policy "public read project_images"
   on project_images for select
   using (true);
 
--- 관리자 전체 권한 (service_role 키 사용 시 RLS 우회)
--- Server Actions에서는 service_role 키를 사용하거나
--- auth.uid()를 체크하는 관리자 정책 추가
+-- 관리자: 전체 프로젝트 읽기 (미발행 포함)
+create policy "auth read all projects"
+  on projects for select
+  to authenticated
+  using (true);
+
+-- 관리자: 프로젝트 생성/수정/삭제
+create policy "auth insert projects"
+  on projects for insert
+  to authenticated
+  with check (true);
+
+create policy "auth update projects"
+  on projects for update
+  to authenticated
+  using (true)
+  with check (true);
+
+create policy "auth delete projects"
+  on projects for delete
+  to authenticated
+  using (true);
+
+-- 관리자: 프로젝트 이미지 생성/삭제
+create policy "auth insert project_images"
+  on project_images for insert
+  to authenticated
+  with check (true);
+
+create policy "auth delete project_images"
+  on project_images for delete
+  to authenticated
+  using (true);
+
+-- 관리자: 사이트 이미지 생성/삭제
+create policy "auth insert site_images"
+  on site_images for insert
+  to authenticated
+  with check (true);
+
+create policy "auth delete site_images"
+  on site_images for delete
+  to authenticated
+  using (true);
 
 -- 문의는 누구나 insert, 읽기는 관리자만
 create policy "anyone can insert inquiry"
   on inquiries for insert
   with check (true);
+
+create policy "auth read inquiries"
+  on inquiries for select
+  to authenticated
+  using (true);

@@ -22,7 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <div className="min-h-screen bg-cream-100">
       <header className="bg-brown-900 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <span className="font-serif-kr text-[1rem] font-semibold text-cream-200 tracking-[0.05em]">
+          <span className="text-[1rem] font-semibold text-cream-200 tracking-[0.05em]">
             공간인테리어 관리자
           </span>
           <nav className="hidden sm:flex gap-6">
@@ -37,6 +37,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               className="text-[0.82rem] text-cream-200/60 hover:text-cream-100 tracking-widest transition-colors"
             >
               문의 목록
+            </Link>
+            <Link
+              href="/admin/site"
+              className="text-[0.82rem] text-cream-200/60 hover:text-cream-100 tracking-widest transition-colors"
+            >
+              사이트 이미지
             </Link>
           </nav>
         </div>

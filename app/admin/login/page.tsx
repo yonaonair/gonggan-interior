@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
           <p className="font-display italic text-[0.85rem] text-brown-300 tracking-[0.2em] mb-3">
             Admin
           </p>
-          <h1 className="font-serif-kr text-[1.8rem] font-semibold text-cream-100">
+          <h1 className="text-[1.8rem] font-semibold text-cream-100">
             공간인테리어
           </h1>
         </div>

@@ -16,7 +16,7 @@ export default async function AdminInquiriesPage() {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="font-serif-kr text-[1.5rem] font-semibold text-brown-900">문의 목록</h1>
+          <h1 className="text-[1.5rem] font-semibold text-brown-900">문의 목록</h1>
           {unreadCount > 0 && (
             <p className="text-[0.82rem] text-brown-500 mt-1">읽지 않은 문의 {unreadCount}건</p>
           )}

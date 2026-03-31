@@ -9,9 +9,10 @@ const CATEGORIES: ProjectCategory[] = ['주거공간', '상업공간', '교육·
 
 interface Props {
   project?: Project
+  onCreated?: (id: string) => void
 }
 
-export default function ProjectForm({ project }: Props) {
+export default function ProjectForm({ project, onCreated }: Props) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState('')
@@ -36,7 +37,11 @@ export default function ProjectForm({ project }: Props) {
       }
 
       if (!project && 'id' in result) {
-        router.push(`/admin/projects/${result.id}`)
+        if (onCreated) {
+          onCreated(result.id as string)
+        } else {
+          router.push(`/admin/projects/${result.id}`)
+        }
       } else {
         router.refresh()
       }
@@ -125,26 +130,33 @@ export default function ProjectForm({ project }: Props) {
         />
       </div>
 
-      <div className="flex gap-6 pt-1">
-        <label className="flex items-center gap-2 cursor-pointer text-[0.82rem] text-brown-900">
+      <div className="flex flex-col gap-3 pt-2 border-t border-brown-800/10">
+        <p className={labelClass}>공개 설정</p>
+        <label className="flex items-center justify-between gap-4 px-4 py-3 bg-white border border-brown-800/12 cursor-pointer hover:bg-cream-100 transition-colors">
+          <div>
+            <div className="text-[0.85rem] text-brown-900 font-medium">웹사이트 공개</div>
+            <div className="text-[0.78rem] text-(--text-light) mt-0.5">체크 시 공개 페이지에 노출됩니다. 미체크 시 임시저장(초안) 상태입니다.</div>
+          </div>
           <input
             name="is_published"
             type="checkbox"
             value="true"
-            defaultChecked={project?.is_published}
-            className="accent-brown-500 w-4 h-4"
+            defaultChecked={project?.is_published ?? true}
+            className="accent-brown-500 w-5 h-5 shrink-0"
           />
-          발행
         </label>
-        <label className="flex items-center gap-2 cursor-pointer text-[0.82rem] text-brown-900">
+        <label className="flex items-center justify-between gap-4 px-4 py-3 bg-white border border-brown-800/12 cursor-pointer hover:bg-cream-100 transition-colors">
+          <div>
+            <div className="text-[0.85rem] text-brown-900 font-medium">홈 대표 사례</div>
+            <div className="text-[0.78rem] text-(--text-light) mt-0.5">홈페이지 시공사례 섹션에서 첫 번째 카드가 2배 크기로 강조 표시됩니다.</div>
+          </div>
           <input
             name="is_featured"
             type="checkbox"
             value="true"
             defaultChecked={project?.is_featured}
-            className="accent-brown-500 w-4 h-4"
+            className="accent-brown-500 w-5 h-5 shrink-0"
           />
-          대표 사례
         </label>
       </div>
 

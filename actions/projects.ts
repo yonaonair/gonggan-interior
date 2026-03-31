@@ -39,7 +39,10 @@ export async function createProject(formData: FormData) {
     .select('id')
     .single()
 
-  if (error) return { success: false, error: '저장 중 오류가 발생했습니다.' }
+  if (error) {
+    console.error('[createProject] DB error:', error)
+    return { success: false, error: error.message }
+  }
 
   revalidatePath('/projects')
   revalidatePath('/')

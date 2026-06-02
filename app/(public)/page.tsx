@@ -28,10 +28,12 @@ export default async function HomePage() {
   const heroImages = (siteImages ?? [])
     .filter((img) => img.slot === 'hero')
     .map((img) => getPublicUrl(img.r2_key))
+    .filter((url): url is string => url !== null)
 
   const aboutImage = (siteImages ?? [])
     .filter((img) => img.slot === 'about')
-    .map((img) => getPublicUrl(img.r2_key))[0]
+    .map((img) => getPublicUrl(img.r2_key))
+    .find((url): url is string => url !== null)
 
   return (
     <>

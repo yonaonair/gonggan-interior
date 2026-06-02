@@ -9,7 +9,7 @@ export default function HeroSection({ heroImages = [] }: Props) {
         <section
             suppressHydrationWarning
             id="hero"
-            className="min-h-screen bg-brown-900 grid grid-cols-1 md:grid-cols-2 items-center relative overflow-hidden"
+            className="min-h-screen bg-brown-900 grid grid-cols-1 md:grid-cols-2 items-center relative overflow-hidden pb-28"
             style={{ paddingTop: "var(--nav-h)" }}
         >
             {/* 배경 그리드 텍스처 */}

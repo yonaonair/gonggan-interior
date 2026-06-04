@@ -46,11 +46,10 @@ export async function deleteFile(key: string) {
     );
 }
 
-export function getPublicUrl(key: string): string | null {
+export function getPublicUrl(key: string): string {
     // NEXT_PUBLIC_ 접두사가 있어야 클라이언트에서도 접근 가능
     const base =
-        process.env.NEXT_PUBLIC_R2_PUBLIC_URL ?? process.env.R2_PUBLIC_URL;
-    if (!base) return null;
+        process.env.NEXT_PUBLIC_R2_PUBLIC_URL ?? process.env.R2_PUBLIC_URL ?? '';
     return `${base}/${key}`;
 }
 
